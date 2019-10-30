@@ -12,11 +12,11 @@
 #include <iostream>
 class singleton {
 public:
-    singleton();
     ~singleton();
     static singleton* getInstance() ;
     void singletonOperator() const;
 private:
+    singleton();
     static singleton* instance ; 
 };
 singleton* singleton::instance = nullptr;
@@ -44,3 +44,19 @@ int main() {
     return 0;
 }
 
+/*
+单例类的构造函数为私有
+提供一个自身的静态私有成员变量
+提供一个共有的静态工厂方法
+*/
+/*
+优点
+1 提供了对唯一实例的受控访问
+2 可以节约系统资源，对于一些需要频繁创建和销毁的对象，单例模式无疑可以提高系统的性能
+3 允许可变数目的实例，我们可以对单例模式进行扩展
+*/
+/*
+缺点：
+1 单例模式没有抽象层，不容器扩展
+2 职责过重，单例类既充当了工厂角色，也提供了工厂方法
+*/
